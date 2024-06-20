@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">TccMobile</string>
+
+    <string name="txtLoginTitulo">Login</string>
+    <string name="button_home_desc">Volte a tela inicial</string>
+    <string name="txtEmail">Insira o E-mail</string>
+    <string name="txtSenha">Insira a senha</string>
+</resources>

@@ -1,0 +1,20 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.TccMobile" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Cores Primarias -->
+       <item name="colorPrimary">@color/corfundo</item>
+        <item name="colorPrimaryVariant">@color/azulclaro</item>
+            <item name="colorOnPrimary">@color/white</item>
+
+        <!--  Color Secondary-->
+        <item name="colorSecondary">@color/azulescuro</item>
+        <item name="colorSecondaryVariant">@color/azulescurov2</item>
+        <item name="colorOnSecondary">@color/black</item>
+
+        <!-- Status Bar Color -->
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+
+    </style>
+
+    <style name="Theme.TccMobile" parent="Base.Theme.TccMobile" />
+</resources>
