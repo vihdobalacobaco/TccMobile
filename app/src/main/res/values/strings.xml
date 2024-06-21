@@ -5,4 +5,8 @@
     <string name="button_home_desc">Volte a tela inicial</string>
     <string name="txtEmail">Insira o E-mail</string>
     <string name="txtSenha">Insira a senha</string>
+    <string name="linkCadastro">Não tem conta?\nClique aqui e faça o cadastro!</string>
+    <string name="txtButtonEntrar">Entrar</string>
+    <string name="txtEsqueceuSenha"><u>Esqueceu a senha?\nClique aqui!</u></string>
+
 </resources>
