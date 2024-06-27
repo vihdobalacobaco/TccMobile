@@ -13,5 +13,13 @@
     <string name="txtBottomName">Insira seu nome</string>
     <string name="txtInputDesc">Descreva o motivo para o contato aqui.</string>
     <string name="txtEnviar">Enviar</string>
+    <string name="txtConfirmarCadastro">Confirmar cadastro</string>
+    <string name="txtTenhoCadastro">Tenho cadastro</string>
+    <string name="title_cadastro">Novo Aqui?</string>
+    <string name="title_cadastro_2">Crie sua conta!</string>
+    <string name="title_cadastro_3">Faça login ou cadastre-se para reagir</string>
+    <string name="title_cadastro_4">e dar sua opinião nas nossas notícias.</string>
+
+
 
 </resources>
