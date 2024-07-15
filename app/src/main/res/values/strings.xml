@@ -19,7 +19,10 @@
     <string name="title_cadastro_2">Crie sua conta!</string>
     <string name="title_cadastro_3">Faça login ou cadastre-se para reagir</string>
     <string name="title_cadastro_4">e dar sua opinião nas nossas notícias.</string>
-
-
+    <string name="txt_redfSenha">Redefinir Senha</string>
+    <string name="txt_subtitRedf">É bom tê-lo conosco!</string>
+    <string name="txtNovaSenha">Nova Senha</string>
+    <string name="txtRedf">Redefinir</string>
+    <string name="txttenhoCads"><u>Tenho cadastro</u></string>
 
 </resources>

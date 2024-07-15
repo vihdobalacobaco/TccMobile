@@ -29,7 +29,6 @@
         android:layout_marginTop="-37dp"
         android:src="@drawable/logotitulo"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -97,8 +96,8 @@
                    </com.google.android.material.textfield.TextInputLayout>
 
     <ImageView
-        android:layout_width="36dp"
-        android:layout_height="36dp"
+        android:layout_width="34dp"
+        android:layout_height="34dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="72dp"
         android:src="@drawable/perfilazul"
@@ -192,5 +191,7 @@
              android:clickable="true"
              android:focusable="true"
              />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

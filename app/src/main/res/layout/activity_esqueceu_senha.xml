@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EsqueceuSenha"
+    android:background="@color/corfundo">
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="@drawable/cabecalho_background"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <ImageView
+        android:id="@+id/logotit"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/logotitulo"
+        android:layout_marginTop="-37dp"
+        />
+
+    <ImageButton
+        android:id="@+id/VoltarTela"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        app:layout_constraintStart_toStartOf="parent"
+        android:src="@drawable/voltar_amarelo"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        app:layout_constraintTop_toTopOf="parent"
+        android:scaleType="fitCenter"
+        android:contentDescription="Voltar"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        android:padding="6dp"
+        />
+
+    <TextView
+        android:id="@+id/titleRedefinir"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/txt_redfSenha"
+        app:layout_constraintTop_toBottomOf="@id/view"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:gravity="center"
+        android:layout_marginTop="55dp"
+        android:textSize="36sp"
+        android:textColor="@color/azulescuro"
+        android:textStyle="bold"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/subtit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/titleRedefinir"
+        android:text="@string/txt_subtitRedf"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:textColor="@color/azulescuro"
+        />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/InputEmailredf"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/subtit"
+        android:layout_marginTop="70dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="80dp"
+        android:layout_marginEnd="80dp"
+        app:boxStrokeColor="@color/azulescuro"
+        app:hintAnimationEnabled="true"
+        app:hintTextColor="@color/black"
+        app:errorTextColor="@color/red"
+        app:errorEnabled="false"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/txtEmail"
+            android:inputType="textEmailAddress"
+            android:textSize="15sp"
+            android:background="@drawable/background_input_email"
+            android:maxLines="1"
+            android:padding="15dp"
+            android:paddingStart="25dp"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <ImageView
+        android:id="@+id/imgperfil"
+        android:layout_width="34dp"
+        android:layout_height="34dp"
+        android:src="@drawable/perfilazul"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/subtit"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="84dp"
+        />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/InputNovaSenha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/InputEmailredf"
+        android:layout_marginTop="25dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginEnd="80dp"
+        app:hintAnimationEnabled="true"
+        app:hintTextColor="@color/black"
+        app:boxStrokeColor="@color/azulescuro"
+        app:errorEnabled="false"
+        app:errorTextColor="@color/red"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/ediTxtNovaSenha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/txtNovaSenha"
+            android:background="@drawable/background_input_email"
+            android:padding="15dp"
+            android:inputType="textPassword"
+            android:maxLines="1"
+            android:paddingStart="20dp"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <ImageView
+        android:id="@+id/imgchave"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:src="@drawable/chave"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imgperfil"
+        android:layout_marginTop="50dp"
+        android:layout_marginStart="32dp"
+
+        />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/ButtonRedefinir"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/InputNovaSenha"
+        android:layout_marginTop="40dp"
+        android:text="@string/txtRedf"
+        android:textColor="@color/white"
+        android:background="@drawable/background_button_selector"
+        android:padding="16dp"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/txttenhoCads"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ButtonRedefinir"
+        android:gravity="center"
+        android:textSize="18sp"
+        android:layout_marginTop="15dp"
+        android:textColor="@color/azulescuro"
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
