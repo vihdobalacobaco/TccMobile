@@ -24,5 +24,8 @@
     <string name="txtNovaSenha">Nova Senha</string>
     <string name="txtRedf">Redefinir</string>
     <string name="txttenhoCads"><u>Tenho cadastro</u></string>
+    <dimen name="text_size_small">14sp</dimen>
+    <dimen name="text_size_medium">20sp</dimen>
+    <string name="txt_noticias">Notícias da Semana</string>
 
 </resources>
