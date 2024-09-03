@@ -78,20 +78,6 @@
             android:orientation="horizontal"
             android:contentDescription="@string/txtSubTitulo" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/textViewLink1"
-            android:text="Noticia 1"
-            android:textColor="@color/azulescurov2"
-            app:layout_constraintTop_toBottomOf="@id/recycler"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="100dp"
-            android:clickable="true"
-            android:focusable="true"
-            android:textSize="@dimen/text_size_medium"
-            android:textStyle="italic" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -109,21 +95,6 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/textViewLink2"
-            android:text="Noticia 2"
-            android:textColor="@color/azulescurov2"
-            app:layout_constraintTop_toBottomOf="@id/textViewLink1"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="10dp"
-            android:clickable="true"
-            android:focusable="true"
-            android:textSize="@dimen/text_size_medium"
-            android:textStyle="italic" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:text="Mais Lidas"
             android:textColor="@color/azulescurov2"
             android:textSize="28sp"
@@ -133,6 +104,43 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
             />
+        
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textViewLink1"
+            android:text="Noticia 1"
+            android:textColor="@color/azulescurov2"
+            app:layout_constraintTop_toBottomOf="@id/recycler"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="100dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:textSize="21dp"
+            android:textStyle="italic"
+            android:padding="10dp"
+            android:textAlignment="center"
+            />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textViewLink2"
+            android:text="Noticia 2"
+            android:textColor="@color/azulescurov2"
+            app:layout_constraintTop_toBottomOf="@id/textViewLink1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:clickable="true"
+            android:focusable="true"
+            android:textSize="21dp"
+            android:textStyle="italic"
+            android:padding="10dp"/>
+
+
 
         <TextView
             android:layout_width="wrap_content"
@@ -143,26 +151,30 @@
             app:layout_constraintTop_toBottomOf="@id/textViewLink2"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="10dp"
             android:clickable="true"
             android:focusable="true"
-            android:textSize="@dimen/text_size_medium"
+            android:textSize="21dp"
+            android:padding="10dp"
             android:textStyle="italic" />
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:id="@+id/textViewLink4"
-            android:text="Noticia 4"
-            android:textColor="@color/azulescurov2"
-            app:layout_constraintTop_toBottomOf="@id/textViewLink3"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="10dp"
+            android:layout_width="78dp"
+            android:layout_height="45dp"
             android:clickable="true"
             android:focusable="true"
-            android:textSize="@dimen/text_size_medium"
-            android:textStyle="italic" />
+            android:padding="10dp"
+            android:text="Noticia 4"
+            android:textAlignment="center"
+            android:textColor="@color/azulescurov2"
+            android:textSize="21dp"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textViewLink3"
+
+            />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
