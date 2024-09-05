@@ -27,5 +27,26 @@
     <dimen name="text_size_small">14sp</dimen>
     <dimen name="text_size_medium">20sp</dimen>
     <string name="txt_noticias">Notícias da Semana</string>
+    <string name="titnoticia"><u>Twitter: STF mantém suspensão do X no Brasil; Musk cita Lula; debate em SP | UOL News ao vivo</u></string>
+    <string name="textonoticia">As mensagens vazadas do gabinete do ministro Alexandre de Moraes são como aquilo que o gato enterra: quanto mais se mexe, mais fede.
+        Desculpe o ditado, mas essa sabedoria popular se mostrou verdadeira novamente na última quarta-feira (04), com mais uma reportagem da Vaza Toga publicada pela Folha de S. Paulo,
+        revelando como Moraes tentou influenciar até nas políticas internas do Twitter, em benefício próprio.
+        Quando não conseguiu, decidiu "endurecer" as medidas judiciais contra a plataforma.
+        A nova leva de mensagens, em resumo, mostra conversas em um grupo de WhatsApp entre os juízes auxiliares de Moraes no Supremo Tribunal Federal (STF) e no Tribunal Superior Eleitoral (TSE),
+        além de outros assessores, em março de 2023, cinco meses após o fim das eleições presidenciais de 2022.
+        Marco Antônio Vargas, juiz auxiliar de Moraes no TSE, trouxe ao grupo a postagem de uma mulher criticando o ministro,
+        provavelmente a pedido de Moraes, como já ocorrido em outros casos.
+        "A mensagem dizia: ‘Foi o Tribunal Internacional.
+        O Mula, Xandão e esse governo usurpador estão sendo acusados de crimes contra a humanidade (prisões ilegais, tortura, campos de concentração, mortes, etc.)’".
+        A pergunta que surge é: “Por que um ministro do Supremo se preocuparia com uma postagem dessas?”
+        Ego, vaidade, crueldade e necessidade de controle podem ser hipóteses, mas o fato é que Moraes não gostou,
+        e sua equipe quis derrubar o conteúdo.
+Uma     pessoa comum, ao se sentir ofendida por um post, contrataria um advogado e acionaria a justiça
+        de primeira instância para pedir responsabilização civil e criminal do ofensor. Moraes, no entanto,
+        queria que o Twitter não apenas removesse aquela publicação, mas todas as semelhantes.
+        E, pior ainda, queria que a censura fosse apresentada como uma ação a partir das próprias regras do Twitter,
+        não como um pedido extraoficial do TSE.
 
+
+    </string>
 </resources>
