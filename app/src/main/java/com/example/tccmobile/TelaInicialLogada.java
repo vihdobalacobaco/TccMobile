@@ -48,7 +48,7 @@ public class TelaInicialLogada extends AppCompatActivity {
         textViewLink1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(TelaInicialLogada.this, FormCadastro.class);
+                Intent intent = new Intent(TelaInicialLogada.this, NoticiaAberta.class);
                 startActivity(intent);
             }
         });
