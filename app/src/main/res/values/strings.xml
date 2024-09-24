@@ -2,6 +2,9 @@
     <string name="app_name">TccMobile</string>
 
     <string name="txtLoginTitulo">Login</string>
+    <string name="button_perfil_desc">Entre em seu perfil</string>
+    <string name="txtSubTituloFaleConosco">Envie para nós o seu problema e entraremos em contato com você.</string>
+    <string name="txtFaleConosco">Fale Conosco</string>
     <string name="button_home_desc">Volte a tela inicial</string>
     <string name="txtEmail">Insira o E-mail</string>
     <string name="txtSenha">Insira a senha</string>
