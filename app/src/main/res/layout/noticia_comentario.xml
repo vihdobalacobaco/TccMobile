@@ -10,8 +10,8 @@
 
     <View
         android:id="@+id/view"
-        android:layout_width="417dp"
-        android:layout_height="68dp"
+        android:layout_width="414dp"
+        android:layout_height="73dp"
         android:background="@drawable/cabecalho_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -30,8 +30,8 @@
 
     <ImageView
         android:id="@+id/logotit"
-        android:layout_width="184dp"
-        android:layout_height="156dp"
+        android:layout_width="197dp"
+        android:layout_height="160dp"
         android:layout_marginTop="30dp"
         android:src="@drawable/logotitulo"
         app:layout_constraintBottom_toBottomOf="@+id/view"
@@ -72,16 +72,16 @@
 
     <TextView
         android:id="@+id/txtSubTitulo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="120dp"
+        android:layout_width="174dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="36dp"
         android:gravity="center"
         android:text="@string/txtSubTitulo"
-        android:textColor="@color/azulescuro"
-        android:textSize="17sp"
+        android:textColor="@color/black"
+        android:textSize="18sp"
         android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.067"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/txtnovoComentario" />
 
