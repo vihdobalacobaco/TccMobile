@@ -8,7 +8,7 @@
     <string name="linkCadastro">Não tem conta?\nClique aqui e faça o cadastro!</string>
     <string name="txtButtonEntrar">Entrar</string>
     <string name="txtEsqueceuSenha"><u>Esqueceu a senha?\nClique aqui!</u></string>
-    <string name="txtFaleConosco">Fale Conosco</string>
+    <string name="txtNovoComentario">+ NOVO COMENTARIO</string>
     <string name="txtSubTitulo">Envie para nós o seu problema e\nEntraremos emcontato com você.</string>
     <string name="txtBottomName">Insira seu nome</string>
     <string name="txtInputDesc">Descreva o motivo para o contato aqui.</string>
