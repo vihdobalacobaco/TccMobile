@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" >
+    xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -14,7 +14,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TccMobile"
         android:usesCleartextTraffic="true"
-        tools:targetApi="31" >
+        tools:targetApi="31">
+        <activity
+            android:name=".TelaInicial"
+            android:exported="false" />
+        <activity
+            android:name=".MensagemSucesso"
+            android:exported="false" />
         <activity
             android:name=".SucessoCadastro"
             android:exported="false" />
@@ -22,7 +28,7 @@
             android:name=".NoticiaComentario"
             android:exported="false" />
         <activity
-            android:name=".TelaInicialLogada"
+            android:name=".NoticiaAberta"
             android:exported="false" />
         <activity
             android:name=".TokenVerificacao"
@@ -46,8 +52,8 @@
             android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".NoticiaAberta"
-            android:exported="true" >
+            android:name=".TelaInicialLogada"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

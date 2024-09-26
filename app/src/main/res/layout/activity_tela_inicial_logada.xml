@@ -48,7 +48,7 @@
             android:padding="10dp" />
 
         <ImageButton
-            android:id="@+id/butfaleconosco"
+            android:id="@+id/butsair"
             android:layout_width="55dp"
             android:layout_height="55dp"
             app:layout_constraintTop_toTopOf="parent"
@@ -59,7 +59,7 @@
             android:padding="8dp"
             android:layout_marginTop="9dp"
             android:layout_marginEnd="10dp"
-            android:contentDescription="fale conosco" />
+            android:contentDescription="sair" />
 
         <com.google.android.material.appbar.MaterialToolbar
             android:layout_width="match_parent"
@@ -79,6 +79,8 @@
             android:orientation="horizontal"
             android:visibility="visible"
             app:layoutManager="com.google.android.material.carousel.CarouselLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/view" />
 
 

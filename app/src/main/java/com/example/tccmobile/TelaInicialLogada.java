@@ -54,7 +54,7 @@ public class TelaInicialLogada extends AppCompatActivity {
         });
 
         // Configurando o ImageButton para navegação
-        ImageButton butfaleconosco = findViewById(R.id.butfaleconosco);
+        ImageButton butfaleconosco = findViewById(R.id.butsair);
         butfaleconosco.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

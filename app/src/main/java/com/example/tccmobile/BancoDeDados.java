@@ -17,7 +17,7 @@ public class BancoDeDados {
             StrictMode.setThreadPolicy(politica);
 
             Class.forName("net.sourceforge.jtds.jdbc.Driver");
-            conn = DriverManager.getConnection("jdbc:jtds:sqlserver://FI-122170600778"+
+            conn = DriverManager.getConnection("jdbc:jtds:sqlserver://172.19.1.250"+
                     "databaseName=Banco_Android; user=sa;password=@ITB123456;");
              return conn;
         } catch (SQLException e) {
