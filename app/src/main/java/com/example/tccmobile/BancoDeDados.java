@@ -8,17 +8,16 @@ import java.sql.SQLException;
 
 public class BancoDeDados {
 
-    public static Connection conectar () {
+    public static Connection conectar (TesteConexaoBD testeConexaoBD) {
         Connection conn = null;
         try {
             StrictMode.ThreadPolicy politica;
-            politica = new
-                    StrictMode.ThreadPolicy.Builder().permitAll().build();
+            politica = new StrictMode.ThreadPolicy.Builder().permitAll().build();
             StrictMode.setThreadPolicy(politica);
 
             Class.forName("net.sourceforge.jtds.jdbc.Driver");
             conn = DriverManager.getConnection("jdbc:jtds:sqlserver://172.19.1.250"+
-                    "databaseName=Banco_Android; user=sa;password=@ITB123456;");
+                    "databaseName=bdPortal360;user=sa;password=@ITB123456;");
              return conn;
         } catch (SQLException e) {
             e.getMessage();
