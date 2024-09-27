@@ -16,21 +16,22 @@ public class TesteConexaoBD extends AppCompatActivity {
         setContentView(R.layout.activity_teste_conexao_bd);
 
         Connection conn = BancoDeDados.conectar(TesteConexaoBD.this);
-        BancoTeste = findViewById(R.id.BancoTeste);
+        BancoTeste = findViewById(R.id.textView);
 
         try {
-            if (conn != null){
+            if (conn != null) {
                 if (!conn.isClosed())
-                    BancoTeste.setText("CONEXAO REALIZADA COM SUCESSO");
+                    BancoTeste.setText("CONEXAO Realizada com sucesso");
                 else
-                    BancoTeste.setText("A CONEXAO ESTÁ FECHADA");
+                    BancoTeste.setText("A CONEXÃO ESTÁ FECHADA");
             } else {
                 BancoTeste.setText("CONEXAO NULA, NÃO REALIZADA");
             }
-        } catch (java.sql.SQLException ex){
+        } catch (java.sql.SQLException ex) {
             ex.printStackTrace();
-            BancoTeste.setText("CONEXÃO FALHOU!!\n" +
+            BancoTeste.setText("CONEXÃO FALHOU!!!\n" +
                     ex.getMessage());
         }
+
     }
 }
