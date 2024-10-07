@@ -46,7 +46,7 @@
             android:name=".EsqueceuSenha"
             android:exported="false" />
         <activity
-            android:name=".FormCadastro"
+            android:name=".TesteConexaoBD"
             android:exported="false" />
         <activity
             android:name=".FaleConosco"
@@ -55,7 +55,7 @@
             android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".TesteConexaoBD"
+            android:name=".FormCadastro"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
