@@ -48,16 +48,6 @@ public class FormCadastro extends AppCompatActivity {
         });
 
 
-        IniciarComponentes();
-        text_tenho_cad.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Intent intent = new Intent(FormCadastro.this, FormLogin.class);
-                startActivity(intent);
-            }
-        });
-
         ImageButton botaohome = findViewById(R.id.botaohome);
         botaohome.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,8 +57,14 @@ public class FormCadastro extends AppCompatActivity {
             }
         });
 
-    }
-    private void IniciarComponentes(){
-        text_tenho_cad = findViewById(R.id.text_tenho_cad);
+        TextView text_tenho_cad = findViewById(R.id.text_tenho_cad);
+        text_tenho_cad.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(FormCadastro.this, FormLogin.class);
+                startActivity(intent);
+            }
+        });
+
     }
     }

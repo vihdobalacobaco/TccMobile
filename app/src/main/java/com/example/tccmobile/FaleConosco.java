@@ -5,6 +5,8 @@ import androidx.appcompat.widget.AppCompatButton;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageButton;
 
 public class FaleConosco extends AppCompatActivity {
 
@@ -15,7 +17,14 @@ public class FaleConosco extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fale_conosco);
 
-
+        ImageButton botaohome = findViewById(R.id.botaohome);
+        botaohome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(FaleConosco.this, TelaInicial.class);
+                startActivity(intent);
+            }
+        });
 
     }
 }
