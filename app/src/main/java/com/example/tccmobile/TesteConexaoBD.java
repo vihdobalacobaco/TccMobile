@@ -15,7 +15,7 @@ public class TesteConexaoBD extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teste_conexao_bd);
 
-        Connection conn = BancoDeDados.conectar(TesteConexaoBD.this);
+        Connection conn = BancoDeDados.conectar();
         BancoTeste = findViewById(R.id.BancoTeste);
 
         try {
