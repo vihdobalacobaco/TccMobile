@@ -40,9 +40,11 @@ public class FormCadastro extends AppCompatActivity {
 
                 int res = UsuarioCrud.InserirUsuario(user, getBaseContext());
                 if (res <=0){
-                    Snackbar.make(btn_cadastrar, "Dados não inseridos!", Snackbar.LENGTH_LONG).show();
+                 //   Snackbar.make(btn_cadastrar, "Dados não inseridos!", Snackbar.LENGTH_LONG).show();
+                    Snackbar.make(btn_cadastrar, "Dados não inseridos", Snackbar.LENGTH_LONG).show();
                 } else {
-                    Snackbar.make(btn_cadastrar, "Dados Cadastrados com sucesso", Snackbar.LENGTH_LONG).show();
+                    Snackbar.make(btn_cadastrar, "Dados Cadastrados com Sucesso", Snackbar.LENGTH_LONG).show();
+                    //Snackbar.make(btn_cadastrar, "Dados Cadastrados com sucesso", Snackbar.LENGTH_LONG).show();
                 }
             }
         });

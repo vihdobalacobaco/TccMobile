@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <application
         android:allowBackup="true"
@@ -46,7 +48,7 @@
             android:name=".EsqueceuSenha"
             android:exported="false" />
         <activity
-            android:name=".TesteConexaoBD"
+            android:name=".FormCadastro"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -61,7 +63,7 @@
             android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".FormCadastro"
+            android:name=".TesteConexaoBD"
             android:exported="true"/>
 
     </application>

@@ -13,7 +13,8 @@ public class UsuarioCrud {
 
         try {
 
-            PreparedStatement pst = BancoDeDados.conectar().prepareStatement(
+            //PreparedStatement pst = BancoDeDados.conectar((TesteConexaoBD) ctx).prepareStatement(
+             PreparedStatement pst = BancoDeDados.conectar((TesteConexaoBD) ctx).prepareStatement(
                     "Insert Into Usuario (nome, email, senha)" + "values (?,?,?)");
 
             pst.setString(1, Usuario.getNome());
