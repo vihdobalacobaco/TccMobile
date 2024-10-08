@@ -108,7 +108,7 @@
             android:layout_height="50dp"
             android:background="@drawable/background_input_desc"
             android:gravity="start"
-            android:hint="@string/txtInputDesc"
+            android:hint="@string/txtInputComent"
             android:maxLines="100" />
     </com.google.android.material.textfield.TextInputLayout>
 
