@@ -48,7 +48,7 @@ public class TelaInicial extends AppCompatActivity {
 
     @SuppressLint("NotifyDataSetChanged")
     private void carregarNoticiasSemana() {
-        Connection conn = BancoDeDados.conectar(TesteConexaoBD.this);
+        Connection conn = BancoDeDados.conectar();
         if (conn != null) {
             try {
                 String query = "SELECT * FROM Noticia WHERE statusNoticia = 'ATIVO' ORDER BY id DESC";

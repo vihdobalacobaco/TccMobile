@@ -7,7 +7,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class BancoDeDados {
-   public static Connection conectar (TelaInicial testeConexaoBD){
+   public static Connection conectar (TesteConexaoBD testeConexaoBD){
 
    Connection conn = null;
    try {
