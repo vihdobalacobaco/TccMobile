@@ -15,8 +15,13 @@ public class UsuarioCrud {
             PreparedStatement pst = BancoDeDados.conectar((TesteConexaoBD) ctx).prepareStatement(
                     "Insert Into Usuario (nome, email, senha)" + "values (?,?,?)");
 
+            pst.setString(1, Usuario.getNome());
+            pst.setString(2, Usuario.getEmail());
+            pst.setString(3, Usuario.getSenha());
+
+            resposta = pst.executeUpdate();
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            e.getMessage();
         }
         return resposta;
     }
