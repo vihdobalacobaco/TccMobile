@@ -3,6 +3,7 @@ package com.example.tccmobile;
 public class Noticia {
     private int id;
     private String manchete;
+    private String conteudo;
     private String palavrasChave;
     private String dataEnvio;
     private String dataPublicacao;
@@ -13,6 +14,14 @@ public class Noticia {
 
     public int getId() {
         return id;
+    }
+
+    public String getConteudo() {
+        return conteudo;
+    }
+
+    public void setConteudo(String conteudo) {
+        this.conteudo = conteudo;
     }
 
     public void setId(int id) {

@@ -11,27 +11,17 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
-
-import java.util.ArrayList;
 import java.util.List;
 
 public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ViewHolder> {
 
-    Context context;
+    private Context context;
+    private List<Noticia> listaNoticias;
+    private OnItemClickListener onItemClickListener;
 
-    private List<com.example.tccmobile.Noticia> listaImage;
-    ArrayList<String> arrayList;
-    OnItemClickListener onItemClickListener;
-
-
-    public ImageAdapter(List<Noticia> listaImage) {
+    public ImageAdapter(Context context, List<Noticia> listaNoticias) {
         this.context = context;
-        this.arrayList = arrayList;
-        this.listaImage = listaImage;
-    }
-
-    public ImageAdapter(TelaInicialLogada telaInicialLogada, ArrayList<String> arrayList) {
+        this.listaNoticias = listaNoticias;
     }
 
     @NonNull
@@ -43,11 +33,8 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-
-        com.example.tccmobile.Noticia noticia = listaImage.get(position);
-
+        Noticia noticia = listaNoticias.get(position);
         byte[] imageBytes = noticia.getFoto();
-
 
         if (imageBytes != null) {
             Bitmap bitmap = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.length);
@@ -56,12 +43,14 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ViewHolder> 
             holder.imageView.setImageResource(R.drawable.placeholder);
         }
 
-        Glide.with(context).load(arrayList.get(position)).into(holder.imageView);
-        holder.itemView.setOnClickListener(view -> onItemClickListener.onClick(holder.imageView, arrayList.get(position)));
+        holder.itemView.setOnClickListener(v -> {
+            if (onItemClickListener != null) {
+                onItemClickListener.onClick(v, position);
+            }
+        });
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-
         ImageView imageView;
 
         public ViewHolder(@NonNull View itemView) {
@@ -70,27 +59,16 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ViewHolder> 
         }
     }
 
+    public interface OnItemClickListener {
+        void onClick(View view, int position);
+    }
+
     public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
         this.onItemClickListener = onItemClickListener;
     }
 
-    public void setArrayList(ArrayList<String> arrayList) {
-        this.arrayList = arrayList;
-    }
-
-
-    public interface  OnItemClickListener {
-        void onClick(ImageView imageView, String url);
-    }
-
     @Override
     public int getItemCount() {
-        return listaImage.size();
+        return listaNoticias.size();
     }
-
-    public void setListaImage(List<Noticia> novaListaImage) {
-        this.listaImage = novaListaImage;
-        notifyDataSetChanged();
-    }
-
 }

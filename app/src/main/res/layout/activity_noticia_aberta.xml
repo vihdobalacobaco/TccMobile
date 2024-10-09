@@ -66,7 +66,7 @@
             app:layout_constraintTop_toBottomOf="@id/view">
 
             <TextView
-                android:id="@+id/TituloNoticia"
+                android:id="@+id/mancheteNoticia"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/titnoticia"
@@ -108,19 +108,19 @@
         </LinearLayout>
 
             <ImageView
-                android:id="@+id/imgnoticia"
+                android:id="@+id/fotoNoticia"
                 android:layout_width="250dp"
                 android:layout_height="150dp"
                 android:layout_gravity="center"
                 android:src="@drawable/celularimg" />
 
             <TextView
+                android:id="@+id/conteudoNoticia"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/textonoticia"
-                android:textSize="17sp"
                 android:layout_marginTop="20dp"
-                />
+                android:text="@string/textonoticia"
+                android:textSize="17sp" />
 
 
 

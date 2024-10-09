@@ -1,4 +1,4 @@
-package com.example.tccmobile;
+/* package com.example.tccmobile;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
@@ -43,7 +43,6 @@ public class TelaInicialLogada extends AppCompatActivity {
         });
         recyclerView.setAdapter(adapter);
 
-        // Configurando o TextView para navegação
         TextView textViewLink1 = findViewById(R.id.textViewLink1);
         textViewLink1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,3 +64,4 @@ public class TelaInicialLogada extends AppCompatActivity {
 
     }
 }
+*/

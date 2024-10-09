@@ -4,8 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.annotation.SuppressLint;
+import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Toast;
 
 import java.sql.Connection;
@@ -17,9 +19,10 @@ import java.util.List;
 
 public class TelaInicial extends AppCompatActivity {
 
-    RecyclerView recyclerViewNoticiasSemana, recyclerViewNoticiasMaisLidas;
+    private static final String TAG = "TelaInicial";
+    RecyclerView recyclerViewNoticiasSemana;
     ImageAdapter imageAdapter;
-    List<com.example.tccmobile.Noticia> listaImage;
+    List<Noticia> listaNoticias;
 
     @Override
     protected void onResume() {
@@ -32,50 +35,80 @@ public class TelaInicial extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_inicial);
 
-        listaImage = new ArrayList<>();
-        imageAdapter = new ImageAdapter(listaImage);
+
+        listaNoticias = new ArrayList<>();
+        imageAdapter = new ImageAdapter(this, listaNoticias);
 
         recyclerViewNoticiasSemana = findViewById(R.id.NoticiasSemana);
-        recyclerViewNoticiasSemana.setLayoutManager(new LinearLayoutManager(this));
-        recyclerViewNoticiasSemana.setAdapter(imageAdapter); // Set the adapter
-
-        recyclerViewNoticiasMaisLidas = findViewById(R.id.NoticiasMaisLidas);
-        recyclerViewNoticiasMaisLidas.setLayoutManager(new LinearLayoutManager(this));
-        // You may want to set another adapter here if needed
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        recyclerViewNoticiasSemana.setLayoutManager(layoutManager);
 
         carregarNoticiasSemana();
+
+        imageAdapter.setOnItemClickListener((view, position) -> {
+            Noticia noticia = listaNoticias.get(position);
+            Intent intent = new Intent(TelaInicial.this, NoticiaAberta.class);
+            intent.putExtra("foto", noticia.getFoto());
+            intent.putExtra("manchete", noticia.getManchete());
+            intent.putExtra("fonte", noticia.getFonte());
+            intent.putExtra("dataPublicacao", noticia.getDataPublicacao());
+            intent.putExtra("palavrasChave", noticia.getPalavrasChave());
+            intent.putExtra("conteudo", noticia.getConteudo());
+            startActivity(intent);
+        });
     }
 
-    @SuppressLint("NotifyDataSetChanged")
     private void carregarNoticiasSemana() {
-        Connection conn = BancoDeDados.conectar(TesteConexaoBD.class);
-        if (conn != null) {
-            try {
-                String query = "SELECT * FROM Noticia WHERE statusNoticia = 'ATIVO' ORDER BY id DESC";
-                PreparedStatement stmt = conn.prepareStatement(query);
-                ResultSet rs = stmt.executeQuery();
+        new CarregarNoticiasTask().execute();
+    }
 
-                while (rs.next()) {
-                    com.example.tccmobile.Noticia produto = new com.example.tccmobile.Noticia();
-                    produto.setFoto(rs.getBytes("foto"));
-                    listaImage.add(produto); // Add the noticia object
-                }
-                imageAdapter.notifyDataSetChanged(); // Notify the adapter that data has changed
-            } catch (SQLException e) {
-                e.printStackTrace();
-                Toast.makeText(this, "Erro ao carregar noticias", Toast.LENGTH_SHORT).show();
-            } finally {
+    private class CarregarNoticiasTask extends AsyncTask<Void, Void, Void> {
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+            Connection conn = BancoDeDados.conectar(TelaInicial.this);
+            if (conn != null) {
                 try {
-                    if (conn != null) {
-                        conn.close();
+                    String query = "SELECT * FROM Noticia WHERE statusNoticia = 'PUBLICADA' ORDER BY id DESC";
+                    PreparedStatement stmt = conn.prepareStatement(query);
+                    ResultSet rs = stmt.executeQuery();
+
+                    listaNoticias.clear();
+
+                    while (rs.next()) {
+                        Noticia noticia = new Noticia();
+                        noticia.setId(rs.getInt("id"));
+                        noticia.setManchete(rs.getString("manchete"));
+                        noticia.setConteudo(rs.getString("conteudo"));
+                        noticia.setFoto(rs.getBytes("foto"));
+                        noticia.setStatusNoticia(rs.getString("statusNoticia"));
+                        listaNoticias.add(noticia);
                     }
+
                 } catch (SQLException e) {
-                    e.printStackTrace();
+                    Log.e(TAG, "Erro ao carregar noticias: " + e.getMessage());
+                } finally {
+                    try {
+                        if (conn != null) {
+                            conn.close();
+                        }
+                    } catch (SQLException e) {
+                        Log.e(TAG, "Erro ao fechar a conexão: " + e.getMessage());
+                    }
                 }
+            } else {
+                Log.e(TAG, "Conexão com o banco falhou");
             }
-        } else {
-            Toast.makeText(this, "Conexão com o banco falhou", Toast.LENGTH_SHORT).show();
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            recyclerViewNoticiasSemana.setAdapter(imageAdapter);
+            imageAdapter.notifyDataSetChanged();
+            if (listaNoticias.isEmpty()) {
+                Toast.makeText(TelaInicial.this, "Nenhuma notícia encontrada.", Toast.LENGTH_SHORT).show();
+            }
         }
     }
 }
-
