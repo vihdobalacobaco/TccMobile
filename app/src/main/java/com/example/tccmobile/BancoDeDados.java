@@ -15,7 +15,7 @@ public class BancoDeDados {
        politica = new StrictMode.ThreadPolicy.Builder().permitAll().build();
        StrictMode.setThreadPolicy(politica);
        Class.forName("net.sourceforge.jtds.jdbc.Driver");
-       conn = DriverManager.getConnection("jdbc:jtds:sqlserver://172.19.0.105;" +
+       conn = DriverManager.getConnection("jdbc:jtds:sqlserver://172.19.1.250;" +
                "databaseName=bdPortal360;user=sa;password=@ITB123456;");
    } catch (SQLException e){
        e.getMessage();

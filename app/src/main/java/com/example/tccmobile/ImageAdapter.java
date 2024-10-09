@@ -31,6 +31,9 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ViewHolder> 
         this.listaImage = listaImage;
     }
 
+    public ImageAdapter(TelaInicialLogada telaInicialLogada, ArrayList<String> arrayList) {
+    }
+
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -63,7 +66,7 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ViewHolder> 
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            imageView = itemView.findViewById(R.id.list_item_image);
+            imageView = itemView.findViewById(R.id.imagem_noticia);
         }
     }
 
