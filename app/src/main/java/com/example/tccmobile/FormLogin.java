@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 public class FormLogin extends AppCompatActivity {
@@ -16,17 +17,17 @@ public class FormLogin extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_form_login);
 
-        IniciarComponentes();
+
+        TextView text_tela_cadastro = findViewById(R.id.text_tela_cadastro);
         text_tela_cadastro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 Intent intent = new Intent(FormLogin.this, FormCadastro.class);
                 startActivity(intent);
             }
         });
+
+
     }
-    private void IniciarComponentes(){
-        text_tela_cadastro = findViewById(R.id.text_tela_cadastro);
-    }
+
 }

@@ -14,6 +14,7 @@
     <string name="txtNovoComentario">+ NOVO COMENTARIO</string>
     <string name="txtSubTitulo">Entre na discussão!</string>
     <string name="txtBottomName">Insira seu nome</string>
+    <string name="txtInputComent">Deixe seu comentario aqui.</string>
     <string name="txtInputDesc">Descreva o motivo para o contato aqui.</string>
     <string name="txtEnviar">Enviar</string>
     <string name="txtConfirmarCadastro">Confirmar cadastro</string>

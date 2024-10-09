@@ -54,11 +54,11 @@ public class TelaInicialLogada extends AppCompatActivity {
         });
 
         // Configurando o ImageButton para navegação
-        ImageButton butfaleconosco = findViewById(R.id.butsair);
-        butfaleconosco.setOnClickListener(new View.OnClickListener() {
+        ImageButton butsair = findViewById(R.id.butsair);
+        butsair.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(TelaInicialLogada.this, FaleConosco.class);
+                Intent intent = new Intent(TelaInicialLogada.this, TelaInicial.class);
                 startActivity(intent);
             }
         });
