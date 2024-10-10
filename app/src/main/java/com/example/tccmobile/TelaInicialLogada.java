@@ -1,4 +1,4 @@
-/* package com.example.tccmobile;
+ package com.example.tccmobile;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
@@ -14,8 +14,12 @@ import android.widget.SearchView;
 import android.widget.TextView;
 import com.google.android.material.appbar.MaterialToolbar;
 import java.util.ArrayList;
+import java.util.List;
 
-public class TelaInicialLogada extends AppCompatActivity {
+ public class TelaInicialLogada extends AppCompatActivity {
+
+     private static final String TAG = "TelaIniciaLogada";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,21 +31,6 @@ public class TelaInicialLogada extends AppCompatActivity {
         MaterialToolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        ArrayList<String> arrayList = new ArrayList<>();
-        arrayList.add("https://images.unsplash.com/photo-1720048171180-a8178a198fa8?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxfHx8ZW58MHx8fHx8");
-        arrayList.add("https://images.unsplash.com/photo-1719937206491-ed673f64be1f?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw2fHx8ZW58MHx8fHx8");
-        arrayList.add("https://images.unsplash.com/photo-1719937051230-8798ae2ebe86?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxMXx8fGVufDB8fHx8fA%3D%3D");
-
-        ImageAdapter adapter = new ImageAdapter(TelaInicialLogada.this, arrayList);
-        adapter.setOnItemClickListener(new ImageAdapter.OnItemClickListener() {
-            @Override
-            public void onClick(ImageView imageView, String url) {
-                startActivity(new Intent(TelaInicialLogada.this, ImageViewActivity.class)
-                                .putExtra("image", url),
-                        ActivityOptions.makeSceneTransitionAnimation(TelaInicialLogada.this, imageView, "image").toBundle());
-            }
-        });
-        recyclerView.setAdapter(adapter);
 
         TextView textViewLink1 = findViewById(R.id.textViewLink1);
         textViewLink1.setOnClickListener(new View.OnClickListener() {
@@ -62,6 +51,8 @@ public class TelaInicialLogada extends AppCompatActivity {
             }
         });
 
+
+
+
     }
 }
-*/
