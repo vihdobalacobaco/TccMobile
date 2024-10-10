@@ -48,18 +48,18 @@
             android:padding="10dp" />
 
         <ImageButton
-            android:id="@+id/butsair"
+            android:id="@+id/buttonsair"
             android:layout_width="55dp"
             android:layout_height="55dp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:src="@drawable/sair"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:scaleType="fitCenter"
-            android:padding="8dp"
-            android:layout_marginTop="9dp"
+            android:layout_marginTop="8dp"
             android:layout_marginEnd="10dp"
-            android:contentDescription="sair" />
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="sair"
+            android:padding="8dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/sair"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.appbar.MaterialToolbar
             android:layout_width="match_parent"
@@ -70,115 +70,46 @@
             android:visibility="gone"
             />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycler"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_marginTop="130dp"
-            android:contentDescription="@string/txtSubTitulo"
-            android:orientation="horizontal"
-            android:visibility="visible"
-            app:layoutManager="com.google.android.material.carousel.CarouselLayoutManager"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/view" />
-
 
         <TextView
+            android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/txt_noticias"
-            app:layout_constraintBottom_toTopOf="@id/recycler"
-            app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="20dp"
-            android:textSize="28sp"
-            android:textStyle="bold"
+            android:layout_marginTop="28dp"
+            android:text="@string/txt_noticias"
             android:textColor="@color/azulescurov2"
+            android:textSize="28sp"
 
-            />
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/logotit" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="2dp"
             android:text="Recentes"
             android:textColor="@color/azulescurov2"
             android:textSize="28sp"
             android:textStyle="bold"
-            app:layout_constraintTop_toBottomOf="@id/recycler"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
-            />
-        
+            app:layout_constraintTop_toBottomOf="@+id/NoticiasSemana" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/textViewLink1"
-            android:text="Noticia 1"
-            android:textColor="@color/azulescurov2"
-            app:layout_constraintTop_toBottomOf="@id/recycler"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/NoticiasSemana"
+            android:layout_width="409dp"
+            android:layout_height="218dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="100dp"
-            android:clickable="true"
-            android:focusable="true"
-            android:textSize="21dp"
-            android:textStyle="italic"
-            android:padding="10dp"
-            android:textAlignment="center"
-            />
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
 
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/textViewLink2"
-            android:text="Noticia 2"
-            android:textColor="@color/azulescurov2"
-            app:layout_constraintTop_toBottomOf="@id/textViewLink1"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:clickable="true"
-            android:focusable="true"
-            android:textSize="21dp"
-            android:textStyle="italic"
-            android:padding="10dp"/>
-
-
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/textViewLink3"
-            android:text="Noticia 3"
-            android:textColor="@color/azulescurov2"
-            app:layout_constraintTop_toBottomOf="@id/textViewLink2"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:clickable="true"
-            android:focusable="true"
-            android:textSize="21dp"
-            android:padding="10dp"
-            android:textStyle="italic" />
-
-        <TextView
-            android:id="@+id/textViewLink4"
-            android:layout_width="134dp"
-            android:layout_height="52dp"
-            android:clickable="true"
-            android:focusable="true"
-            android:padding="10dp"
-            android:text="Noticia 4"
-            android:textAlignment="center"
-            android:textColor="@color/azulescurov2"
-            android:textSize="21dp"
-            android:textStyle="italic"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textViewLink3"
-            />
-
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/NoticiasMaisLidas"
+            android:layout_width="409dp"
+            android:layout_height="261dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

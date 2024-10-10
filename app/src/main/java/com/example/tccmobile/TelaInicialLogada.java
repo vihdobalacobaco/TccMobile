@@ -26,33 +26,15 @@ import java.util.List;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_inicial_logada);
 
-        // Configurando o RecyclerView
-        RecyclerView recyclerView = findViewById(R.id.recycler);
-        MaterialToolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-
-        TextView textViewLink1 = findViewById(R.id.textViewLink1);
-        textViewLink1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(TelaInicialLogada.this, NoticiaAberta.class);
-                startActivity(intent);
-            }
-        });
-
         // Configurando o ImageButton para navegação
-        ImageButton butsair = findViewById(R.id.butsair);
-        butsair.setOnClickListener(new View.OnClickListener() {
+        ImageButton buttonsair = findViewById(R.id.buttonsair);
+        buttonsair.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(TelaInicialLogada.this, TelaInicial.class);
                 startActivity(intent);
             }
         });
-
-
-
 
     }
 }

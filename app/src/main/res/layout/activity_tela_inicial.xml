@@ -90,7 +90,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="2dp"
-            android:text="Mais Lidas"
+            android:text="Recentes"
             android:textColor="@color/azulescurov2"
             android:textSize="28sp"
             android:textStyle="bold"
