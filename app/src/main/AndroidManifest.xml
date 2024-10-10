@@ -18,7 +18,7 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".TelaInicialLogada"
+            android:name=".TelaInicial"
             android:exported="false" />
         <activity
             android:name=".FormCadastro"
@@ -30,7 +30,7 @@
             android:name=".SucessoCadastro"
             android:exported="false" />
         <activity
-            android:name=".NoticiaComentario"
+            android:name=".TelaInicialLogada"
             android:exported="false" />
         <activity
             android:name=".NoticiaAberta"
@@ -48,7 +48,7 @@
             android:name=".EsqueceuSenha"
             android:exported="false" />
         <activity
-            android:name=".TelaInicial"
+            android:name=".NoticiaComentario"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

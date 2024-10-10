@@ -23,7 +23,7 @@ public class TelaInicial extends AppCompatActivity {
     RecyclerView recyclerViewNoticiasSemana;
     RecyclerView recyclerViewNoticiasMaisLidas;
     ImageAdapter imageAdapter;
-    ImageAdapter maisLidasAdapter; // Adapter para as notícias mais lidas
+    ImageAdapter maisLidasAdapter;  // Adapter para as notícias mais lidas
     List<Noticia> listaNoticias;
     List<Noticia> listaNoticiasMaisLidas;
 
@@ -35,8 +35,8 @@ public class TelaInicial extends AppCompatActivity {
         listaNoticias = new ArrayList<>();
         listaNoticiasMaisLidas = new ArrayList<>();
 
-        imageAdapter = new ImageAdapter(this, listaNoticias);
-        maisLidasAdapter = new ImageAdapter(this, listaNoticiasMaisLidas); // Inicializa o adapter para as mais lidas
+        imageAdapter = new ImageAdapter(this, listaNoticias, true);  // Exibe imagens para "Notícias da Semana"
+        maisLidasAdapter = new ImageAdapter(this, listaNoticiasMaisLidas, false);  // Oculta imagens para "Notícias Mais Lidas"
 
         recyclerViewNoticiasSemana = findViewById(R.id.NoticiasSemana);
         recyclerViewNoticiasMaisLidas = findViewById(R.id.NoticiasMaisLidas);
@@ -44,8 +44,8 @@ public class TelaInicial extends AppCompatActivity {
         recyclerViewNoticiasSemana.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
         recyclerViewNoticiasMaisLidas.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
 
-        recyclerViewNoticiasSemana.setAdapter(imageAdapter); // Configura o adapter para as notícias da semana
-        recyclerViewNoticiasMaisLidas.setAdapter(maisLidasAdapter); // Configura o adapter para as mais lidas
+        recyclerViewNoticiasSemana.setAdapter(imageAdapter);  // Configura o adapter para as notícias da semana
+        recyclerViewNoticiasMaisLidas.setAdapter(maisLidasAdapter);  // Configura o adapter para as mais lidas
 
         carregarNoticiasSemana();
         carregarNoticiasMaisLidas();
@@ -53,11 +53,7 @@ public class TelaInicial extends AppCompatActivity {
         imageAdapter.setOnItemClickListener((view, position) -> {
             Noticia noticia = listaNoticias.get(position);
             Intent intent = new Intent(TelaInicial.this, NoticiaAberta.class);
-            intent.putExtra("foto", noticia.getFoto());
             intent.putExtra("manchete", noticia.getManchete());
-            intent.putExtra("fonte", noticia.getFonte());
-            intent.putExtra("dataPublicacao", noticia.getDataPublicacao());
-            intent.putExtra("palavrasChave", noticia.getPalavrasChave());
             intent.putExtra("conteudo", noticia.getConteudo());
             startActivity(intent);
         });
@@ -65,11 +61,7 @@ public class TelaInicial extends AppCompatActivity {
         maisLidasAdapter.setOnItemClickListener((view, position) -> {
             Noticia noticia = listaNoticiasMaisLidas.get(position);
             Intent intent = new Intent(TelaInicial.this, NoticiaAberta.class);
-            intent.putExtra("foto", noticia.getFoto());
             intent.putExtra("manchete", noticia.getManchete());
-            intent.putExtra("fonte", noticia.getFonte());
-            intent.putExtra("dataPublicacao", noticia.getDataPublicacao());
-            intent.putExtra("palavrasChave", noticia.getPalavrasChave());
             intent.putExtra("conteudo", noticia.getConteudo());
             startActivity(intent);
         });
@@ -82,11 +74,11 @@ public class TelaInicial extends AppCompatActivity {
         carregarNoticiasMaisLidas();
     }
 
-    private void carregarNoticiasSemana() {
+    public void carregarNoticiasSemana() {
         new CarregarNoticiasTask().execute();
     }
 
-    private void carregarNoticiasMaisLidas() {
+    public void carregarNoticiasMaisLidas() {
         new CarregarNoticiasMaisLidasTask().execute();
     }
 
@@ -96,7 +88,8 @@ public class TelaInicial extends AppCompatActivity {
             Connection conn = BancoDeDados.conectar(TelaInicial.this);
             if (conn != null) {
                 try {
-                    String query = "SELECT * FROM Noticia WHERE statusNoticia = 'PUBLICADA' ORDER BY id DESC";
+                    String query = "SELECT * FROM Noticia WHERE statusNoticia = 'PUBLICADA' ORDER BY dataPublicacao DESC";
+
                     PreparedStatement stmt = conn.prepareStatement(query);
                     ResultSet rs = stmt.executeQuery();
 
@@ -179,7 +172,7 @@ public class TelaInicial extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(Void aVoid) {
-            maisLidasAdapter.notifyDataSetChanged(); // Atualiza o adapter de mais lidas
+            maisLidasAdapter.notifyDataSetChanged();
             if (listaNoticiasMaisLidas.isEmpty()) {
                 Toast.makeText(TelaInicial.this, "Nenhuma notícia encontrada.", Toast.LENGTH_SHORT).show();
             }

@@ -19,39 +19,52 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ViewHolder> 
     private Context context;
     private List<Noticia> listaNoticias;
     private OnItemClickListener onItemClickListener;
+    private boolean mostrarImagem;  // Variável para controlar a exibição da imagem
 
-    public ImageAdapter(Context context, List<Noticia> listaNoticias) {
+    public ImageAdapter(Context context, List<Noticia> listaNoticias, boolean mostrarImagem) {
         this.context = context;
         this.listaNoticias = listaNoticias;
+        this.mostrarImagem = mostrarImagem;  // Inicializar controle
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.activity_manchete_noticia, parent, false); // Use o layout correto aqui
+        View view = LayoutInflater.from(context).inflate(R.layout.activity_manchete_noticia, parent, false);
         return new ViewHolder(view);
     }
-
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Noticia noticia = listaNoticias.get(position);
-        byte[] imageBytes = noticia.getFoto();
 
-        if (imageBytes != null) {
-            Bitmap bitmap = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.length);
-            holder.imageView.setImageBitmap(bitmap);
+        // Lógica para exibir ou ocultar a imagem
+        if (mostrarImagem) {
+            byte[] imageBytes = noticia.getFoto();
+            if (imageBytes != null && imageBytes.length > 0) {
+                Bitmap bitmap = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.length);
+                holder.imageView.setImageBitmap(bitmap);
+            } else {
+                holder.imageView.setImageResource(R.drawable.placeholder);
+            }
+            holder.imageView.setVisibility(View.VISIBLE);  // Exibe a imagem
         } else {
-            holder.imageView.setImageResource(R.drawable.placeholder);
+            holder.imageView.setVisibility(View.GONE);  // Oculta a imagem
         }
 
         holder.mancheteTextView.setText(noticia.getManchete());
 
+        // Configurar o clique do item
         holder.itemView.setOnClickListener(v -> {
             if (onItemClickListener != null) {
                 onItemClickListener.onClick(v, position);
             }
         });
+    }
+
+    @Override
+    public int getItemCount() {
+        return listaNoticias.size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
@@ -71,10 +84,5 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ViewHolder> 
 
     public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
         this.onItemClickListener = onItemClickListener;
-    }
-
-    @Override
-    public int getItemCount() {
-        return listaNoticias.size();
     }
 }
