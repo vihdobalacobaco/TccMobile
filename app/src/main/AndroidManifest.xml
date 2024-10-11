@@ -21,7 +21,7 @@
             android:name=".TelaInicial"
             android:exported="false" />
         <activity
-            android:name=".FormCadastro"
+            android:name=".NoticiaComentario"
             android:exported="false" />
         <activity
             android:name=".MensagemSucesso"
@@ -48,7 +48,7 @@
             android:name=".EsqueceuSenha"
             android:exported="false" />
         <activity
-            android:name=".NoticiaComentario"
+            android:name=".FormCadastro"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

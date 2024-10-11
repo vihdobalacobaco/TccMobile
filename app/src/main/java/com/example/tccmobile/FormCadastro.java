@@ -1,6 +1,7 @@
 package com.example.tccmobile;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -45,6 +46,8 @@ public class FormCadastro extends AppCompatActivity {
                 } else {
                     Snackbar.make(btn_cadastrar, "Dados Cadastrados com Sucesso", Snackbar.LENGTH_LONG).show();
                     //Snackbar.make(btn_cadastrar, "Dados Cadastrados com sucesso", Snackbar.LENGTH_LONG).show();
+
+                    startActivity(new Intent(FormCadastro.this, FormLogin.class));
                 }
             }
         });

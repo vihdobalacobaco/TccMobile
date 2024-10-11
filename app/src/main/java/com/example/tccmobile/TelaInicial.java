@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import java.sql.Connection;
@@ -29,6 +30,10 @@ public class TelaInicial extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_inicial);
 
@@ -178,4 +183,6 @@ public class TelaInicial extends AppCompatActivity {
             }
         }
     }
+
+
 }
