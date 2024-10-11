@@ -26,12 +26,11 @@
             android:id="@+id/logotit"
             android:layout_width="180dp"
             android:layout_height="180dp"
+            android:layout_marginTop="-48dp"
             android:src="@drawable/logotitulo"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="-37dp"
-            android:contentDescription="logo" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageButton
             android:id="@+id/buttonperfil"

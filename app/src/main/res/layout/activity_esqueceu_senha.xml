@@ -21,11 +21,11 @@
         android:id="@+id/logotit"
         android:layout_width="180dp"
         android:layout_height="180dp"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="-48dp"
+        android:src="@drawable/logotitulo"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:background="@drawable/logotitulo"
-        android:layout_marginTop="-37dp"
         />
 
     <ImageButton
@@ -170,18 +170,6 @@
         android:padding="16dp"
         />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/txttenhoCads"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ButtonRedefinir"
-        android:gravity="center"
-        android:textSize="18sp"
-        android:layout_marginTop="15dp"
-        android:textColor="@color/azulescuro"
-        />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

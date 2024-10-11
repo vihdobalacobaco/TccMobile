@@ -32,14 +32,13 @@
     <!-- Logo -->
     <ImageView
         android:id="@+id/logotit"
-        android:layout_width="197dp"
-        android:layout_height="160dp"
-        android:layout_marginTop="30dp"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        android:layout_marginTop="-48dp"
         android:src="@drawable/logotitulo"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="@id/view" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <!-- Botão Home -->
     <ImageButton

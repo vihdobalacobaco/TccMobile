@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
@@ -70,6 +71,26 @@ public class TelaInicial extends AppCompatActivity {
             intent.putExtra("conteudo", noticia.getConteudo());
             startActivity(intent);
         });
+
+        ImageButton butfaleconosco = findViewById(R.id.butfaleconosco);
+        butfaleconosco.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(TelaInicial.this, FaleConosco.class);
+                startActivity(intent);
+            }
+        });
+        ImageButton butperfil = findViewById(R.id.buttonperfil);
+        butperfil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(TelaInicial.this, FormLogin.class);
+                startActivity(intent);
+            }
+        });
+
+
+
     }
 
     @Override

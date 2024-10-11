@@ -27,6 +27,24 @@ public class FormLogin extends AppCompatActivity {
             }
         });
 
+        TextView textesqsenha = findViewById(R.id.text_esqsenha);
+        textesqsenha.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(FormLogin.this, EsqueceuSenha.class);
+                startActivity(intent);
+            }
+        });
+
+        ImageButton buthome = findViewById(R.id.botaohome);
+        buthome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(FormLogin.this, TelaInicial.class);
+                startActivity(intent);
+            }
+        });
+
 
     }
 

@@ -22,7 +22,7 @@
         android:id="@+id/logotit"
         android:layout_width="180dp"
         android:layout_height="180dp"
-        android:layout_marginTop="-37dp"
+        android:layout_marginTop="-48dp"
         android:src="@drawable/logotitulo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -82,6 +82,7 @@
                 >
 
             <ImageButton
+                android:id="@+id/butcomentar"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:src="@drawable/baseline_chat_bubble_outline_24"
@@ -94,17 +95,6 @@
                 android:layout_gravity="center_horizontal"
                 />
 
-                <ImageButton
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:src="@drawable/baseline_near_me_24"
-                    android:background="?attr/selectableItemBackgroundBorderless"
-                    android:scaleType="fitCenter"
-                    android:layout_marginTop="20dp"
-                    android:contentDescription="comentar"
-                    android:padding="5dp"
-                    android:layout_gravity="center_horizontal"
-                    />
         </LinearLayout>
 
             <ImageView
