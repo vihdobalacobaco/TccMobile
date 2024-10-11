@@ -26,5 +26,15 @@ public class FaleConosco extends AppCompatActivity {
             }
         });
 
+        AppCompatButton inputButtonEnviar = findViewById(R.id.inputButtonEnviar);
+            inputButtonEnviar.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(FaleConosco.this, MensagemSucesso.class);
+                    startActivity(intent);
+                }
+            });
+
+        }
     }
-}
+
