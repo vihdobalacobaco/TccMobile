@@ -53,4 +53,11 @@ Uma     pessoa comum, ao se sentir ofendida por um post, contrataria um advogado
 
 
     </string>
+    <string-array name="tipos_mensagem">
+        <item>DÚVIDA</item>
+        <item>SUGESTÃO</item>
+        <item>RECLAMAÇÃO</item>
+        <item>MENSAGEM</item>
+    </string-array>
+
 </resources>
