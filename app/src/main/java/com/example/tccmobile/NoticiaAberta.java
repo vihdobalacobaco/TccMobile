@@ -53,5 +53,14 @@ public class NoticiaAberta extends AppCompatActivity {
             }
         });
 
+        ImageButton botaohome = findViewById(R.id.botaohome);
+        botaohome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(NoticiaAberta.this, TelaInicialLogada.class);
+                startActivity(intent);
+            }
+        });
+
     }
 }

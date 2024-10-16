@@ -31,10 +31,6 @@ public class TelaInicial extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
-
-
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_inicial);
 
@@ -56,48 +52,51 @@ public class TelaInicial extends AppCompatActivity {
         carregarNoticiasSemana();
         carregarNoticiasMaisLidas();
 
+        // Configuração dos cliques nas notícias
         imageAdapter.setOnItemClickListener((view, position) -> {
             Noticia noticia = listaNoticias.get(position);
-            Intent intent = new Intent(TelaInicial.this, NoticiaAberta.class);
-            intent.putExtra("manchete", noticia.getManchete());
-            intent.putExtra("conteudo", noticia.getConteudo());
-            startActivity(intent);
+            if (noticia != null) { // Verifica se a notícia não é nula
+                Intent intent = new Intent(TelaInicial.this, NoticiaAberta.class);
+                intent.putExtra("manchete", noticia.getManchete());
+                intent.putExtra("conteudo", noticia.getConteudo());
+                startActivity(intent);
+            }
         });
 
         maisLidasAdapter.setOnItemClickListener((view, position) -> {
             Noticia noticia = listaNoticiasMaisLidas.get(position);
-            Intent intent = new Intent(TelaInicial.this, NoticiaAberta.class);
-            intent.putExtra("manchete", noticia.getManchete());
-            intent.putExtra("conteudo", noticia.getConteudo());
+            if (noticia != null) { // Verifica se a notícia não é nula
+                Intent intent = new Intent(TelaInicial.this, NoticiaAberta.class);
+                intent.putExtra("manchete", noticia.getManchete());
+                intent.putExtra("conteudo", noticia.getConteudo());
+                startActivity(intent);
+            }
+        });
+
+        // Botões de navegação
+        ImageButton butfaleconosco = findViewById(R.id.butfaleconosco);
+        butfaleconosco.setOnClickListener(v -> {
+            Intent intent = new Intent(TelaInicial.this, FaleConosco.class);
             startActivity(intent);
         });
 
-        ImageButton butfaleconosco = findViewById(R.id.butfaleconosco);
-        butfaleconosco.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(TelaInicial.this, FaleConosco.class);
-                startActivity(intent);
-            }
-        });
         ImageButton butperfil = findViewById(R.id.buttonperfil);
-        butperfil.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(TelaInicial.this, FormLogin.class);
-                startActivity(intent);
-            }
+        butperfil.setOnClickListener(v -> {
+            Intent intent = new Intent(TelaInicial.this, FormLogin.class);
+            startActivity(intent);
         });
-
-
-
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        carregarNoticiasSemana();
-        carregarNoticiasMaisLidas();
+        // Carrega as notícias apenas se a lista estiver vazia
+        if (listaNoticias.isEmpty()) {
+            carregarNoticiasSemana();
+        }
+        if (listaNoticiasMaisLidas.isEmpty()) {
+            carregarNoticiasMaisLidas();
+        }
     }
 
     public void carregarNoticiasSemana() {
@@ -108,6 +107,7 @@ public class TelaInicial extends AppCompatActivity {
         new CarregarNoticiasMaisLidasTask().execute();
     }
 
+    // AsyncTask para carregar notícias da semana
     private class CarregarNoticiasTask extends AsyncTask<Void, Void, Void> {
         @Override
         protected Void doInBackground(Void... voids) {
@@ -115,11 +115,10 @@ public class TelaInicial extends AppCompatActivity {
             if (conn != null) {
                 try {
                     String query = "SELECT * FROM Noticia WHERE statusNoticia = 'PUBLICADA' ORDER BY dataPublicacao DESC";
-
                     PreparedStatement stmt = conn.prepareStatement(query);
                     ResultSet rs = stmt.executeQuery();
 
-                    listaNoticias.clear();
+                    listaNoticias.clear();  // Limpa a lista antes de adicionar novas notícias
 
                     while (rs.next()) {
                         Noticia noticia = new Noticia();
@@ -150,24 +149,26 @@ public class TelaInicial extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(Void aVoid) {
-            imageAdapter.notifyDataSetChanged();
-            if (listaNoticias.isEmpty()) {
-                Toast.makeText(TelaInicial.this, "Nenhuma notícia encontrada.", Toast.LENGTH_SHORT).show();
+            if (!listaNoticias.isEmpty()) {
+                imageAdapter.notifyDataSetChanged();
+            } else {
+                Toast.makeText(TelaInicial.this, "Nenhuma notícia da semana encontrada.", Toast.LENGTH_SHORT).show();
             }
         }
     }
 
+    // AsyncTask para carregar notícias mais lidas
     private class CarregarNoticiasMaisLidasTask extends AsyncTask<Void, Void, Void> {
         @Override
         protected Void doInBackground(Void... voids) {
             Connection conn = BancoDeDados.conectar(TelaInicial.this);
             if (conn != null) {
                 try {
-                    String query = "SELECT * FROM Noticia WHERE statusNoticia = 'PUBLICADA' ORDER BY NEWID()"; // Aleatoriza as notícias
+                    String query = "SELECT * FROM Noticia WHERE statusNoticia = 'PUBLICADA' ORDER BY NEWID()";  // Aleatoriza as notícias
                     PreparedStatement stmt = conn.prepareStatement(query);
                     ResultSet rs = stmt.executeQuery();
 
-                    listaNoticiasMaisLidas.clear();
+                    listaNoticiasMaisLidas.clear();  // Limpa a lista antes de adicionar novas notícias
 
                     while (rs.next()) {
                         Noticia noticia = new Noticia();
@@ -198,12 +199,11 @@ public class TelaInicial extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(Void aVoid) {
-            maisLidasAdapter.notifyDataSetChanged();
-            if (listaNoticiasMaisLidas.isEmpty()) {
-                Toast.makeText(TelaInicial.this, "Nenhuma notícia encontrada.", Toast.LENGTH_SHORT).show();
+            if (!listaNoticiasMaisLidas.isEmpty()) {
+                maisLidasAdapter.notifyDataSetChanged();
+            } else {
+                Toast.makeText(TelaInicial.this, "Nenhuma notícia mais lida encontrada.", Toast.LENGTH_SHORT).show();
             }
         }
     }
-
-
 }

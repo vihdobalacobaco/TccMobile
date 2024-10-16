@@ -36,35 +36,44 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Noticia noticia = listaNoticias.get(position);
+        // Verificar se a lista está vazia ou se a posição é válida
+        if (listaNoticias != null && position < listaNoticias.size()) {
+            Noticia noticia = listaNoticias.get(position);
 
-        // Lógica para exibir ou ocultar a imagem
-        if (mostrarImagem) {
-            byte[] imageBytes = noticia.getFoto();
-            if (imageBytes != null && imageBytes.length > 0) {
-                Bitmap bitmap = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.length);
-                holder.imageView.setImageBitmap(bitmap);
+            // Lógica para exibir ou ocultar a imagem
+            if (mostrarImagem) {
+                byte[] imageBytes = noticia.getFoto();
+                if (imageBytes != null && imageBytes.length > 0) {
+                    Bitmap bitmap = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.length);
+                    holder.imageView.setImageBitmap(bitmap);
+                } else {
+                    holder.imageView.setImageResource(R.drawable.placeholder);  // Coloca uma imagem de placeholder se não houver imagem
+                }
+                holder.imageView.setVisibility(View.VISIBLE);  // Exibe a imagem
             } else {
-                holder.imageView.setImageResource(R.drawable.placeholder);
+                holder.imageView.setVisibility(View.GONE);  // Oculta a imagem se mostrarImagem for false
             }
-            holder.imageView.setVisibility(View.VISIBLE);  // Exibe a imagem
-        } else {
-            holder.imageView.setVisibility(View.GONE);  // Oculta a imagem
+
+            // Definir o texto da manchete
+            if (noticia.getManchete() != null) {
+                holder.mancheteTextView.setText(noticia.getManchete());
+            } else {
+                holder.mancheteTextView.setText("Manchete não disponível");  // Texto padrão caso a manchete seja nula
+            }
+
+            // Configurar o clique do item
+            holder.itemView.setOnClickListener(v -> {
+                if (onItemClickListener != null) {
+                    onItemClickListener.onClick(v, position);
+                }
+            });
         }
-
-        holder.mancheteTextView.setText(noticia.getManchete());
-
-        // Configurar o clique do item
-        holder.itemView.setOnClickListener(v -> {
-            if (onItemClickListener != null) {
-                onItemClickListener.onClick(v, position);
-            }
-        });
     }
 
     @Override
     public int getItemCount() {
-        return listaNoticias.size();
+        // Verificar se a lista é nula
+        return (listaNoticias != null) ? listaNoticias.size() : 0;
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {

@@ -44,7 +44,7 @@ public class FormLogin extends AppCompatActivity {
 
                     if (isValid) {
                         // Redireciona para a tela inicial ou outra tela
-                        Intent intent = new Intent(FormLogin.this, TelaInicial.class);
+                        Intent intent = new Intent(FormLogin.this, TelaInicialLogada.class);
                         startActivity(intent);
                     } else {
                         Snackbar.make(v, "Email ou senha incorretos!", Snackbar.LENGTH_LONG).show();

@@ -87,6 +87,13 @@ import java.util.List;
                  startActivity(intent);
              }
          });
+
+         ImageButton butperfil = findViewById(R.id.buttonperfil);
+         butperfil.setOnClickListener(v -> {
+             Intent intent = new Intent(TelaInicialLogada.this, FormLogin.class);
+             startActivity(intent);
+         });
+
      }
 
      @Override

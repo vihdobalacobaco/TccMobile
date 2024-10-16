@@ -18,7 +18,7 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".TelaInicial"
+            android:name=".FormCadastro"
             android:exported="false" />
         <activity
             android:name=".NoticiaComentario"
@@ -42,13 +42,10 @@
             android:name=".ImageViewActivity"
             android:exported="false" />
         <activity
-            android:name=".FormLogin"
-            android:exported="false" />
-        <activity
             android:name=".EsqueceuSenha"
             android:exported="false" />
         <activity
-            android:name=".FormCadastro"
+            android:name=".TelaInicial"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -56,6 +53,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".FormLogin"
+            android:exported="false" />
         <activity
             android:name=".FaleConosco"
             android:exported="false" />
