@@ -28,7 +28,7 @@ public class FormCadastro extends AppCompatActivity {
             Pattern.compile("^" +
                     "(?=.*[0-9])" +         // Pelo menos um número
                     "(?=\\S+$)" +           // Sem espaços em branco
-                    ".{6,}" +               // Pelo menos 6 caracteres
+                    ".{8,}" +               // Pelo menos 8 caracteres
                     "$");
 
     @Override
@@ -108,7 +108,7 @@ public class FormCadastro extends AppCompatActivity {
             editSenha.setError("Campo obrigatório");
             return false;
         } else if (!PASSWORD_PATTERN.matcher(senhaInput).matches()) {
-            editSenha.setError("A senha deve ter pelo menos 6 caracteres, incluindo números!");
+            editSenha.setError("A senha deve ter pelo menos 8 caracteres, incluindo números!");
             return false;
         } else {
             editSenha.setError(null);

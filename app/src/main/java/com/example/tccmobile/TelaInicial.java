@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -29,6 +30,8 @@ public class TelaInicial extends AppCompatActivity {
     List<Noticia> listaNoticias;
     List<Noticia> listaNoticiasMaisLidas;
 
+    private boolean isUserLoggedIn;  // Variável para verificar se o usuário está logado
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,27 +52,44 @@ public class TelaInicial extends AppCompatActivity {
         recyclerViewNoticiasSemana.setAdapter(imageAdapter);  // Configura o adapter para as notícias da semana
         recyclerViewNoticiasMaisLidas.setAdapter(maisLidasAdapter);  // Configura o adapter para as mais lidas
 
+        // Verifica se o usuário está logado
+        SharedPreferences sharedPreferences = getSharedPreferences("userPrefs", MODE_PRIVATE);
+        isUserLoggedIn = sharedPreferences.getBoolean("isLoggedIn", false);
+
         carregarNoticiasSemana();
         carregarNoticiasMaisLidas();
 
-        // Configuração dos cliques nas notícias
+        // Configuração dos cliques nas notícias da semana
         imageAdapter.setOnItemClickListener((view, position) -> {
-            Noticia noticia = listaNoticias.get(position);
-            if (noticia != null) { // Verifica se a notícia não é nula
-                Intent intent = new Intent(TelaInicial.this, NoticiaAberta.class);
-                intent.putExtra("manchete", noticia.getManchete());
-                intent.putExtra("conteudo", noticia.getConteudo());
-                startActivity(intent);
+            if (isUserLoggedIn) {
+                // Se o usuário estiver logado, abre a notícia
+                Noticia noticia = listaNoticias.get(position);
+                if (noticia != null) { // Verifica se a notícia não é nula
+                    Intent intent = new Intent(TelaInicial.this, NoticiaAberta.class);
+                    intent.putExtra("manchete", noticia.getManchete());
+                    intent.putExtra("conteudo", noticia.getConteudo());
+                    startActivity(intent);
+                }
+            } else {
+                // Se o usuário não estiver logado, exibe a mensagem
+                Toast.makeText(TelaInicial.this, "Faça o cadastro para ter acesso às notícias.", Toast.LENGTH_LONG).show();
             }
         });
 
+        // Configuração dos cliques nas notícias mais lidas
         maisLidasAdapter.setOnItemClickListener((view, position) -> {
-            Noticia noticia = listaNoticiasMaisLidas.get(position);
-            if (noticia != null) { // Verifica se a notícia não é nula
-                Intent intent = new Intent(TelaInicial.this, NoticiaAberta.class);
-                intent.putExtra("manchete", noticia.getManchete());
-                intent.putExtra("conteudo", noticia.getConteudo());
-                startActivity(intent);
+            if (isUserLoggedIn) {
+                // Se o usuário estiver logado, abre a notícia
+                Noticia noticia = listaNoticiasMaisLidas.get(position);
+                if (noticia != null) { // Verifica se a notícia não é nula
+                    Intent intent = new Intent(TelaInicial.this, NoticiaAberta.class);
+                    intent.putExtra("manchete", noticia.getManchete());
+                    intent.putExtra("conteudo", noticia.getConteudo());
+                    startActivity(intent);
+                }
+            } else {
+                // Se o usuário não estiver logado, exibe a mensagem
+                Toast.makeText(TelaInicial.this, "Faça o cadastro para ter acesso às notícias.", Toast.LENGTH_LONG).show();
             }
         });
 
