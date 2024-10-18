@@ -6,6 +6,7 @@ import androidx.appcompat.widget.AppCompatButton;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -17,7 +18,6 @@ import android.widget.Toast;
 import com.google.android.material.textfield.TextInputEditText;
 
 public class FaleConosco extends AppCompatActivity {
-
 
 
     private TextInputEditText editTextNome;
@@ -56,12 +56,10 @@ public class FaleConosco extends AppCompatActivity {
         botaohome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               Intent intent = new Intent(FaleConosco.this, TelaInicial.class);
-               startActivity(intent);
+                Intent intent = new Intent(FaleConosco.this, TelaInicial.class);
+                startActivity(intent);
             }
         });
-
-
     }
 
     private void enviarMensagem() {
@@ -73,6 +71,12 @@ public class FaleConosco extends AppCompatActivity {
         // Validação simples
         if (nome.isEmpty() || email.isEmpty() || texto.isEmpty()) {
             Toast.makeText(this, "Por favor, preencha todos os campos obrigatórios.", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        // Validação do formato de e-mail
+        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            Toast.makeText(this, "Por favor, insira um e-mail válido.", Toast.LENGTH_LONG).show();
             return;
         }
 
