@@ -53,7 +53,7 @@ public class FormCadastro extends AppCompatActivity {
                 Usuario user = new Usuario(
                         editNome.getText().toString(),
                         editEmail.getText().toString(),
-                        editSenha.getText().toString()
+                        editSenha.getText().toString() // A senha será criptografada no CRUD
                 );
 
                 // Inserindo usuário no banco de dados
