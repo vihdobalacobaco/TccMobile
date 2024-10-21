@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Base64;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Toast;
@@ -75,10 +76,13 @@ public class EsqueceuSenha extends AppCompatActivity {
                     ResultSet rs = stmtCheckEmail.executeQuery();
 
                     if (rs.next()) {
+                        // Codificar a nova senha em Base64
+                        String senhaCodificada = codificarBase64(novaSenha);
+
                         // Se o e-mail existir, atualiza a senha
                         String queryUpdateSenha = "UPDATE Usuario SET senha = ? WHERE email = ?";
                         PreparedStatement stmtUpdateSenha = conn.prepareStatement(queryUpdateSenha);
-                        stmtUpdateSenha.setString(1, novaSenha); // Você pode fazer a hash da senha aqui se necessário
+                        stmtUpdateSenha.setString(1, senhaCodificada); // Senha codificada
                         stmtUpdateSenha.setString(2, email);
                         int rowsUpdated = stmtUpdateSenha.executeUpdate();
 
@@ -113,5 +117,13 @@ public class EsqueceuSenha extends AppCompatActivity {
                 Toast.makeText(EsqueceuSenha.this, "Erro ao redefinir a senha. Verifique o e-mail.", Toast.LENGTH_LONG).show();
             }
         }
+    }
+
+    // Método para codificar a senha em Base64
+    private String codificarBase64(String senha) {
+        // Converter a senha em bytes
+        byte[] senhaBytes = senha.getBytes();
+        // Codificar os bytes em Base64
+        return Base64.encodeToString(senhaBytes, Base64.DEFAULT).trim();
     }
 }
