@@ -25,7 +25,7 @@ public class MensagemCrud {
                 // Definindo os valores dos parâmetros
                 pst.setTimestamp(1, new java.sql.Timestamp(System.currentTimeMillis())); // dataMensagem
                 pst.setString(2, mensagem.getNome()); // emissor
-                pst.setString(3, "DÚVIDA"); // tipo (exemplo de valor, ajuste conforme necessário)
+                pst.setString(3, mensagem.getTipo()); // tipo agora é passado dinamicamente
                 pst.setString(4, mensagem.getEmail()); // email
                 pst.setString(5, mensagem.getTexto()); // texto
                 pst.setString(6, "ATIVO"); // statusMensagem

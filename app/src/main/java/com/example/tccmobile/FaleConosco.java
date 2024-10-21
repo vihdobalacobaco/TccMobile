@@ -80,8 +80,8 @@ public class FaleConosco extends AppCompatActivity {
             return;
         }
 
-        // Criando um objeto Mensagem
-        Mensagem mensagem = new Mensagem(nome, email, texto, tipo);
+        // Criando um objeto Mensagem com o tipo correto
+        Mensagem mensagem = new Mensagem(nome, nome, email, texto, tipo);
 
         // Enviando a mensagem para o banco de dados
         int resultado = MensagemCrud.InserirMensagem(mensagem, this);
